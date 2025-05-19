@@ -11,6 +11,8 @@
             text-align: center;
             margin-top: 50px;
 			font-size: 28px;
+			background-color: white;
+			color: black;
         }
 		#names {
 			font-family: 'handwriting', serif;
