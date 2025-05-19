@@ -15,11 +15,11 @@
 		#names {
 			font-family: 'handwriting', serif;
 			margin-top:-15px;
+			margin-bottom:-80px;
 		}
 		#date {
 			font-family: 'handwriting', serif;
 			font-size:40px;
-			margin-top:-70px;
 		}
         input, button {
 			font-family: 'ITALO_medium', serif;
