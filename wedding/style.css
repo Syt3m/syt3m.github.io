@@ -50,6 +50,11 @@
         .suggestions div:hover {
             background-color: #f0f0f0;
         }
+		#tableplan {
+			max-width: 300px;
+			height: auto;
+			margin-top:20px;
+		}
 		.full-width-image {
             width: 100%;
             height: auto;

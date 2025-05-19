@@ -18,7 +18,6 @@
         <div id="suggestions" class="suggestions"></div>
     </div>
     <p id="output" class="output"></p>
-
 	<script>
 		window.onload = function() {
             document.getElementById("nameInput").focus();
@@ -26,7 +25,7 @@
         const nameToNumber = {
             "Marc": 5,
             "Ramona": 5,
-			"Eric": 5,
+			"Eric A.": 5,
 			"Sebastian": 5,
 			"Günter": 5,
 			"Viola": 5,
@@ -35,7 +34,39 @@
 			"Adrian": 5,
 			"Patrick": 5,
 			"Daniela": 5,
-			"Angela": 5
+			"Angela": 5,
+			"Leon": 5,
+			"Anne": 5,
+			"Heike": 5,
+			"Jules": 1,
+			"Michael K.": 1,
+			"Michael H.": 1,
+			"Snehal": 1,
+			"Athithan": 1,
+			"Ralf": 1,
+			"Thomas": 1,
+			"Maximilian": 1,
+			"Anna": 1,
+			"Bastian": 1,
+			"Eva": 3,
+			"Marco": 3,
+			"Noah": 6,
+			"Elena": 6,
+			"Fabian": 6,
+			"David": 6,
+			"Thilo": 6,
+			"Eric J.": 6,
+			"Onur": 7,
+			"Jan": 7,
+			"Alba": 7,
+			"Moritz": 7,
+			"Mario": 7,
+			"Mayra": 7,
+			"Michael J.": 7,
+			"Jessica": 7,
+			"Hossein": 7,
+			"Negar": 7,
+			"Freddy": 7
         };
 
         function showSuggestions() {
@@ -72,7 +103,7 @@
             suggestionsBox.style.display = "none";
 
             if (nameToNumber[name]) {
-                document.getElementById("output").innerText = "Hallo " + name + ", du sitzt an Tisch " + nameToNumber[name];
+                document.getElementById("output").innerHTML = "Hallo " + name + ", du sitzt an Tisch " + nameToNumber[name] + "<br><img id=\"tableplan\" src=\"Tischnummer" + nameToNumber[name] + ".png\" alt=\"Tischplan\">";
             } else {
                 document.getElementById("output").innerText = "Keine Nummer gefunden.";
             }
