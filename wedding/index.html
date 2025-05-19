@@ -4,55 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hochzeit Ramona Kerschenlohr & Marc Amann</title>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
-    <style>
-		@font-face {
-			font-family: 'ITALO_medium';
-			src: url(ITALO_medium.ttf) format('truetype');
-		}
-        body {
-            font-family: 'ITALO_medium', serif;
-            text-align: center;
-            margin-top: 50px;
-			font-size: 28px;
-        }
-        input, button {
-			font-family: 'ITALO_medium', serif;
-            margin: 10px;
-            padding: 10px;
-            font-size: 28px;
-            width: 200px;
-        }
-		.output {
-			font-size: 50px;
-			font-style: bold;
-		}
-        .suggestions {
-            position: absolute;
-            border: 1px solid #ccc;
-            background-color: white;
-            width: 200px;
-            max-height: 150px;
-            overflow-y: auto;
-            display: none;
-            text-align: left;
-            z-index: 1000;
-        }
-        .suggestions div {
-            padding: 10px;
-            cursor: pointer;
-        }
-        .suggestions div:hover {
-            background-color: #f0f0f0;
-        }
-		.full-width-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<img src="wedding.svg" alt="Herz & Unendlichkeit" width="50px">
+	<p id="names">Ramona & Marc</p>
+	<p id="date">30.05.2025</p>
     <h1>Schön, dass du da bist!</h1>
     <label for="nameInput">Wenn du deinen Namen eingibst, bekommst du deine Tischnummer angezeigt</label>
     <div style="position: relative; display: inline-block;">
@@ -125,7 +82,7 @@
 	<p>16:00 Kaffee und Kuchen</p>
 	<p>18:00 Abendessen</p>
 	<p>20:00 Eröffnungstanz</p>
-	<p>00:00 Abschlusstanz</p>
+	<p>00:00 Abschlusstanz</p><br>
 	<h1>Hochzeitsmenü</h1>
 	<h2>Vorspeisenbuffet</h2>
 	<p>Kleine Crostini mit diversen Belägen</p>
@@ -141,17 +98,18 @@
 	<h2>Dessert</h2>
 	<p>Mousse au Chocolat mit gestückelten Erdbeeren</p>
 	<p>Obstsalat</p>
-	<p>Haselnuss Panna Cotta mit Erdbeerragout</p>
-	<h2>Wein</h2>
+	<p>Haselnuss Panna Cotta mit Erdbeerragout</p><br>
+	<h2>Getränke</h2>
+	<h3>Wein</h3>
 	<p>Nachschlag 2024 Weiß / Rot / Rosé<br>
 	Deutschland - Winzerhof Stahl</p>
-	<h2>Bier</h2>
+	<h3>Bier</h3>
 	<p>Tegernseer Helles<br>
 	Nordbräu Pils<br>
 	Gutmann Hefeweizen<br>
 	Gutmann Hefeweizen alkoholfrei<br>
 	Pyraser Helles alkoholfrei</p>
-	<h2>Alkoholfreies</h2>
+	<h3>Alkoholfreies</h3>
 	<p>Coca Cola / Zero<br>
 	Limonade Orange / Zitrone<br>
 	Spezi<br>

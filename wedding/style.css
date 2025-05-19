@@ -1,0 +1,57 @@
+@font-face {
+			font-family: 'ITALO_medium';
+			src: url(ITALO_medium.ttf) format('truetype');
+		}
+@font-face {
+			font-family: 'handwriting';
+			src: url(VL_Smooth_Handwriting.otf) format('truetype');
+		}
+        body {
+            font-family: 'ITALO_medium', serif;
+            text-align: center;
+            margin-top: 50px;
+			font-size: 28px;
+        }
+		#names {
+			font-family: 'handwriting', serif;
+			margin-top:-15px;
+		}
+		#date {
+			font-family: 'handwriting', serif;
+			font-size:40px;
+			margin-top:-70px;
+		}
+        input, button {
+			font-family: 'ITALO_medium', serif;
+            margin: 10px;
+            padding: 10px;
+            font-size: 28px;
+            width: 200px;
+        }
+		.output {
+			font-size: 50px;
+			font-style: bold;
+		}
+        .suggestions {
+            position: absolute;
+            border: 1px solid #ccc;
+            background-color: white;
+            width: 200px;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+            text-align: left;
+            z-index: 1000;
+        }
+        .suggestions div {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .suggestions div:hover {
+            background-color: #f0f0f0;
+        }
+		.full-width-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
