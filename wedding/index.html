@@ -8,9 +8,15 @@
 	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 </head>
 <body>
+	<button id="scrollToTop" onclick="scrollToTop()">▲</button>
 	<img src="wedding.svg" alt="Herz & Unendlichkeit" width="40px">
 	<div id="names">Ramona & Marc</div>
 	<div id="date">30.05.2025</div>
+	    <div class="menu">
+        <a href="#section1">- Anfahrt -</a>
+        <a href="#section2">- Programm -</a>
+        <a href="#menu">- Hochzeitsmenü -</a>
+    </div>
     <h1>Schön, dass du da bist!</h1>
     <label for="nameInput">Wenn du deinen Namen eingibst, bekommst du deine Tischnummer angezeigt</label><br>
     <div style="position: relative; display: inline-block;">
@@ -19,9 +25,32 @@
     </div>
     <p id="output" class="output"></p>
 	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const targetDate = new Date("2025-05-19T22:49:00"); // Datum setzen
+			const textElement = document.getElementById("menu");
+
+			const currentDate = new Date();
+			if (currentDate >= targetDate) {
+				textElement.style.display = "block"; // Text sichtbar machen
+			} else {
+				textElement.style.display = "none"; // Text verstecken
+			}
+		});
 		window.onload = function() {
             document.getElementById("nameInput").focus();
         };
+		window.onscroll = function () {
+            const button = document.getElementById("scrollToTop");
+            if (document.documentElement.scrollTop > 100) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         const nameToNumber = {
             "Marc": 5,
             "Ramona": 5,
@@ -110,48 +139,50 @@
         }
     </script>
 	<p>Übrigens: Deine schönsten Fotos von heute kannst du <a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank">hier</a> hochladen!</p>
-	<h1>Programm</h1>
+	<h1 id="section2">Programm</h1>
 	<p>15:00 Sektempfang</p>
 	<p>15:30 Kaffee und Kuchen</p>
 	<p>18:00 Abendessen</p>
 	<p>20:00 Eröffnungstanz</p>
 	<p>00:00 Abschlusstanz</p><br>
-	<h1>Hochzeitsmenü</h1>
-	<h2>Vorspeisenbuffet</h2>
-	<p>Kleine Crostini mit diversen Belägen</p>
-	<p>Rucolasalat mit Melonenwürfeln, wahlweise italienischem Schinken, Parmesanspänen und Balsamico Dressing</p>
-	<p>Tomate & Mozzarella</p>
-	<h2>Hauptgerichte vom Buffet</h2>
-	<p>Boeuf Bourgignon<br>
-	Rindfleisch in Burgunderwein geschmort mit Schalotten, gelben Rüben und Champignons, dazu Orcchiette</p>
-	<p>Rotes Gemüsecurry wahlweise mit Hähnchen<br>
-	mit Basmatireis</p>
-	<p>Ofengemüse mit Fetakäse</p>
-	<p>Pasta mit Lachswürfeln und Gemüse auf Zitronensauce</p>
-	<h2>Dessert</h2>
-	<p>Mousse au Chocolat mit gestückelten Erdbeeren</p>
-	<p>Obstsalat</p>
-	<p>Haselnuss Panna Cotta mit Erdbeerragout</p><br>
-	<h2>Getränke</h2>
-	<h3>Wein</h3>
-	<p>Nachschlag 2024 Weiß / Rot / Rosé<br>
-	Deutschland - Winzerhof Stahl</p>
-	<h3>Aperatif</h3>
-	<p>Lillet Wildberry<br>
-	Aperol Spritz<br>
-	Hugo / auch alkoholfrei</p>
-	<h3>Bier</h3>
-	<p>Tegernseer Helles<br>
-	Nordbräu Pils<br>
-	Gutmann Hefeweizen<br>
-	Gutmann Hefeweizen alkoholfrei<br>
-	Pyraser Helles alkoholfrei</p>
-	<h3>Alkoholfreies</h3>
-	<p>Coca Cola / Zero<br>
-	Limonade Orange / Zitrone<br>
-	Spezi<br>
-	Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle<br>
-	Orangensaft</p>
+	<div id="menu" style="display: none">
+		<h1>Hochzeitsmenü</h1>
+		<h2>Vorspeisenbuffet</h2>
+		<p>Kleine Crostini mit diversen Belägen</p>
+		<p>Rucolasalat mit Melonenwürfeln, wahlweise italienischem Schinken, Parmesanspänen und Balsamico Dressing</p>
+		<p>Tomate & Mozzarella</p>
+		<h2>Hauptgerichte vom Buffet</h2>
+		<p>Boeuf Bourgignon<br>
+		Rindfleisch in Burgunderwein geschmort mit Schalotten, gelben Rüben und Champignons, dazu Orcchiette</p>
+		<p>Rotes Gemüsecurry wahlweise mit Hähnchen<br>
+		mit Basmatireis</p>
+		<p>Ofengemüse mit Fetakäse</p>
+		<p>Pasta mit Lachswürfeln und Gemüse auf Zitronensauce</p>
+		<h2>Dessert</h2>
+		<p>Mousse au Chocolat mit gestückelten Erdbeeren</p>
+		<p>Obstsalat</p>
+		<p>Haselnuss Panna Cotta mit Erdbeerragout</p><br>
+		<h2>Getränke</h2>
+		<h3>Wein</h3>
+		<p>Nachschlag 2024 Weiß / Rot / Rosé<br>
+		Deutschland - Winzerhof Stahl</p>
+		<h3>Aperatif</h3>
+		<p>Lillet Wildberry<br>
+		Aperol Spritz<br>
+		Hugo / auch alkoholfrei</p>
+		<h3>Bier</h3>
+		<p>Tegernseer Helles<br>
+		Nordbräu Pils<br>
+		Gutmann Hefeweizen<br>
+		Gutmann Hefeweizen alkoholfrei<br>
+		Pyraser Helles alkoholfrei</p>
+		<h3>Alkoholfreies</h3>
+		<p>Coca Cola / Zero<br>
+		Limonade Orange / Zitrone<br>
+		Spezi<br>
+		Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle<br>
+		Orangensaft</p>
+	</div>
 	<img src="mundm.png" alt="M + M" class="full-width-image">
 </body>
 </html>
