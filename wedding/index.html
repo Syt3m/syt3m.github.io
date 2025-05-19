@@ -17,13 +17,14 @@
 			font-size: 28px;
         }
         input, button {
+			font-family: 'ITALO_medium', serif;
             margin: 10px;
             padding: 10px;
-            font-size: 16px;
+            font-size: 28px;
             width: 200px;
         }
 		.output {
-			font-size: 40px;
+			font-size: 50px;
 			font-style: bold;
 		}
         .suggestions {
@@ -48,7 +49,6 @@
             width: 100%;
             height: auto;
             display: block;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -56,18 +56,27 @@
     <h1>Schön, dass du da bist!</h1>
     <label for="nameInput">Wenn du deinen Namen eingibst, bekommst du deine Tischnummer angezeigt</label>
     <div style="position: relative; display: inline-block;">
-        <input type="text" id="nameInput" placeholder="Gib deinen Namen ein" oninput="showSuggestions()">
+        <input type="text" id="nameInput" placeholder="Dein Name" oninput="showSuggestions()">
         <div id="suggestions" class="suggestions"></div>
     </div>
     <p id="output" class="output"></p>
 
 	<script>
+		window.onload = function() {
+            document.getElementById("nameInput").focus();
+        };
         const nameToNumber = {
-            "Alice": 123,
-            "Bob": 456,
-            "Charlie": 789,
-            "David": 321,
-            "Eva": 654
+            "Marc": 5,
+            "Ramona": 5,
+			"Eric": 5,
+			"Sebastian": 5,
+			"Günter": 5,
+			"Viola": 5,
+			"Uwe": 5,
+			"Verena": 5,
+			"Adrian": 5,
+			"Patrick": 5,
+			"Daniela": 5
         };
 
         function showSuggestions() {
@@ -146,7 +155,7 @@
 	<p>Coca Cola / Zero<br>
 	Limonade Orange / Zitrone<br>
 	Spezi<br>
-	Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle<br>
+	Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle
 	Orangensaft</p>
 	<img src="mundm.png" alt="M + M" class="full-width-image">
 </body>
