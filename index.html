@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <style>
 		@font-face {
-		font-family: 'Italo';
-		src: url(ITALO_medium.ttf);
+			font-family: 'ITALO_medium';
+			src: url(ITALO_medium.ttf) format('truetype');
 		}
         body {
             font-family: 'Italo', sans-serif;
@@ -53,16 +53,15 @@
         <input type="text" id="nameInput" placeholder="Gib deinen Namen ein" oninput="showSuggestions()">
         <div id="suggestions" class="suggestions"></div>
     </div>
-    <button onclick="generateNumber()">Tischnummer anzeigen</button>
     <p id="output" class="output"></p>
 
-    <script>
+	<script>
         const nameToNumber = {
-            "Alice": 2,
-            "Bob": 2,
-            "Charlie": 4,
-            "David": 1,
-            "Eva": 34
+            "Alice": 123,
+            "Bob": 456,
+            "Charlie": 789,
+            "David": 321,
+            "Eva": 654
         };
 
         function showSuggestions() {
@@ -84,6 +83,7 @@
                     div.onclick = () => {
                         document.getElementById("nameInput").value = name;
                         suggestionsBox.style.display = "none";
+                        generateNumber();
                     };
                     suggestionsBox.appendChild(div);
                 });
@@ -97,14 +97,11 @@
             let suggestionsBox = document.getElementById("suggestions");
             suggestionsBox.style.display = "none";
 
-            if (name === "") {
-                document.getElementById("output").innerText = "Bitte gib einen gültigen Namen ein.";
-                return;
+            if (nameToNumber[name]) {
+                document.getElementById("output").innerText = "Hallo " + name + ", du sitzt an Tisch " + nameToNumber[name];
+            } else {
+                document.getElementById("output").innerText = "Keine Nummer gefunden.";
             }
-
-            let number = nameToNumber[name] || "-";
-			if (number != "-")
-                document.getElementById("output").innerText = "Hallo " + name + ", du sitzt an Tisch " + number;
         }
     </script>
 	<p>Übrigens: Deine schönsten Fotos von heute kannst du <a href="https://www.sendmoments.de/">hier</a> hochladen!</p>
