@@ -40,17 +40,17 @@
             document.getElementById("nameInput").focus();
         };
 		window.onscroll = function () {
-            const button = document.getElementById("scrollToTop");
-            if (document.documentElement.scrollTop > 100) {
-                button.style.display = "block";
-            } else {
-                button.style.display = "none";
-            }
-        };
+			const button = document.getElementById("scrollToTop");
+			if (document.documentElement.scrollTop > 100) {
+				button.style.opacity = "1"; // Button erscheint
+			} else {
+				button.style.opacity = "0"; // Button bleibt unsichtbar
+			}
+		};
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+		function scrollToTop() {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
         const nameToNumber = {
             "Marc": 5,
             "Ramona": 5,

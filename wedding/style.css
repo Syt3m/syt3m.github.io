@@ -79,21 +79,21 @@
 			float:right;
         }
 	    #scrollToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 20px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-			width: 50px; /* Feste Breite */
-			height: 50px; /* Feste Höhe, damit es ein Kreis wird */
-			border-radius: 50%; /* Macht den Button rund */
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
 			text-align: center;
+			font-size: 20px;
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			background-color: #333;
+			color: white;
+			border: none;
+			cursor: pointer;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+			opacity: 0; /* Anfangs transparent */
+			transition: opacity 0.5s ease-in-out; /* Sanfte Einblendung */
         }
         #scrollToTop:hover {
             background-color: #575757;
