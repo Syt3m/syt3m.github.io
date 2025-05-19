@@ -14,14 +14,12 @@
         }
 		#names {
 			font-family: 'handwriting', serif;
-			line-height:0;
-			margin-top:10px;
+			line-height:0.8;
 		}
 		#date {
 			font-family: 'handwriting', serif;
 			font-size:40px;
-			line-height:0;
-			margin-top:0px;
+			line-height:0.7;
 		}
         input, button {
 			font-family: 'ITALO_medium', serif;
