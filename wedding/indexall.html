@@ -45,17 +45,6 @@
     </div>
     <p id="output" class="output"></p>
 	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			const targetDate = new Date("2025-05-30T14:00:00");
-			const currentDate = new Date();
-			if (currentDate >= targetDate) {
-				document.getElementById("weddingmenubutton").style.display = "inline";
-				document.getElementById("tablenumberbutton").style.display = "inline";
-			} else {
-				document.getElementById("weddingmenubutton").style.display = "none";
-				document.getElementById("tablenumberbutton").style.display = "none";
-			}
-		});
 		window.onload = function() {
             document.getElementById("nameInput").focus();
         };

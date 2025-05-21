@@ -24,9 +24,20 @@
             padding: 14px 20px;
             text-decoration: none;
             display: inline-block;
+			border-radius: 1px;
+			cursor: pointer;
+			border: 1px solid;
+			border-color:#FFFFFF;
+			transition: border-color 0.8s ease-in-out, border-radius 0.8s ease-in-out;
         }
-        .menu a:hover {
-            background-color: #EEEEEE;
+		.menu a.active {
+            border-color: #BBBBBB;
+			border-radius: 40px; /* Sanfte Abrundung für den aktiven Link */
+        }
+		.content {
+			opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            display: none;
         }
 		#names {
 			font-family: 'handwriting', serif;
