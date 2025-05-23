@@ -7,24 +7,29 @@
 	<link rel="icon" href="https://syt3m.github.io/wedding/favicon.ico" type="image/vnd.microsoft.icon">
 </head>
 <body>
-	<button id="scrollToTop" onclick="scrollToTop()">▲</button>
+<div>
+	<a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank" class="fixedbutton" id="cameraButton">📷</a>
+	<a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank" class="hint" id="hintButton">Hier könnt ihr Fotos<br>anschauen und hochladen</a>
+	<!--<div id="scrollToTop" onclick="scrollToTop()" class="fixedbutton">▲</div>-->
+</div>
 	<img src="wedding.svg" alt="Herz &amp; Unendlichkeit" width="40px">
 	<div id="names">Ramona &amp; Marc</div>
-	<div id="date">30.05.2025</div>
+	<div id="date">30.05.2025</div><br>
 	<div class="menu">
         <a href="#" onclick="showContent('div1', this)">- Anfahrt -</a>
 		<a href="#" onclick="showContent('div2', this)">- Programm -</a><br>
         <a href="#" onclick="showContent('div3', this)" id="tablenumberbutton">- Tischnummer -</a>
         <a href="#" onclick="showContent('div4', this)" id="weddingmenubutton">- Hochzeitsmenü -</a>
-    </div>
+    </div><br>
 	<div id="div1" class="content" style="display:inline;opacity:1;">
 	<h1>Wir freuen uns auf euch!</h1>
 	<p>Unsere Hochzeit feiern wir mit euch am 30.05.25 ab 15:00 im<br>
 	Schloss Hofstetten<br>
 	Schloßstraße 28<br>
 	85122 Hitzhofen</p>
-	<p>Bitte nutzt den <b>Parkplatz</b> vor dem Sport- und Jugendzentrum in der Römerstraße<br>
-	<a href="https://maps.app.goo.gl/4hZ5o5XG5FEB13Gq7" target="_blank">Google Maps Link</a></p>
+	<p>Bitte nutzt den <b>Parkplatz</b> vor dem Sport- und Jugendzentrum in der Römerstraße<br><br>
+	<img src="map.png" alt="Wegbeschreibung Parkplatz und Schloss" width="300px"><br>
+	<h2><a href="https://maps.app.goo.gl/4hZ5o5XG5FEB13Gq7" target="_blank">Google Maps Link</a></h2></p>
 	<p>Wenn dieser voll ist, könnt ihr auch in der Schloßstraße parken, aber bitte <b>nicht auf dem Bordstein.</b></p>
 	<p><b>Die Parkplätze direkt vor dem Schloss sind für Lieferanten reserviert.</b></p>
 	<p>Solltet ihr für die Abreise ein Taxi benötigen, reserviert ihr eure Fahrt am besten mindestens eine Stunde bevor ihr Abreisen wollt. Hofstetten ist verkehrstechnisch etwas abgelegen :)</p>
@@ -47,6 +52,28 @@
     </div>
     <p id="output" class="output"></p>
 	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const targetDate = new Date("2025-05-20T14:00:00");
+			const currentDate = new Date();
+			if (currentDate >= targetDate) {
+				document.getElementById("weddingmenubutton").style.display = "inline-block";
+				document.getElementById("tablenumberbutton").style.display = "inline-block";
+			} else {
+				document.getElementById("weddingmenubutton").style.display = "none";
+				document.getElementById("tablenumberbutton").style.display = "none";
+			}
+		});		
+		window.addEventListener('DOMContentLoaded', () => {
+		    const hint = document.getElementById('hintButton');
+		    function slideInOut() {
+		      hint.style.right = '5px'; // Einblenden
+		      setTimeout(() => {
+		        hint.style.right = '-300px'; // Ausblenden
+		      }, 6000); 
+		    }
+		    setTimeout(slideInOut, 2000);
+		    setInterval(slideInOut, 30000);
+		  });
 		window.onload = function() {
             document.getElementById("nameInput").focus();
         };
@@ -128,8 +155,6 @@
 			"Mayra": 7,
 			"Michael J.": 7,
 			"Jessica": 7,
-			"Hossein": 7,
-			"Negar": 7,
 			"Freddy": 7
         };
 
@@ -173,7 +198,7 @@
             }
         }
     </script>
-	<p>Übrigens: Deine schönsten Fotos von heute kannst du <a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank">hier</a> hochladen!</p>
+	<p>Übrigens: Deine Fotos von heute kannst du <a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank">hier</a> hochladen und mit uns teilen!</p>
 	</div>
 	<div id="div4" class="content">
 		<h1>Hochzeitsmenü</h1>
@@ -196,7 +221,7 @@
 		<h3>Wein</h3>
 		<p>Nachschlag 2024 Weiß / Rot / Rosé<br>
 		Deutschland - Winzerhof Stahl</p>
-		<h3>Aperatif</h3>
+		<h3>Aperitif</h3>
 		<p>Lillet Wildberry<br>
 		Aperol Spritz<br>
 		Hugo / auch alkoholfrei</p>
@@ -213,7 +238,6 @@
 		Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle<br>
 		Orangensaft</p>
 	</div>
-	<img src="mundm.png" alt="M + M" class="full-width-image">
-
-
-</body></html>
+	<img src="mundm.png" alt="M + M" class="full-width-image">    
+</body>
+</html>

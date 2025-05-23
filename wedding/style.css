@@ -1,111 +1,145 @@
 @font-face {
-			font-family: 'ITALO_medium';
-			src: url(ITALO_medium.ttf) format('truetype');
-		}
+	font-family: 'ITALO_medium';
+	src: url(ITALO_medium.ttf) format('truetype');
+}
 @font-face {
-			font-family: 'handwriting';
-			src: url(VL_Smooth_Handwriting.otf) format('truetype');
-		}
-        body {
-            font-family: 'ITALO_medium', serif;
-            text-align: center;
-            margin-top: 50px;
-			font-size: 28px;
-			background-color: white;
-			color: black;
-        }
-		.menu {
-            overflow: hidden;
-            text-align: center;
-            padding: 10px 0;
-        }
-        .menu a {
-            color: #444444;
-            padding: 14px 20px;
-            text-decoration: none;
-            display: inline-block;
-			border-radius: 1px;
-			cursor: pointer;
-			border: 1px solid;
-			border-color:#FFFFFF;
-			transition: border-color 0.8s ease-in-out, border-radius 0.8s ease-in-out;
-        }
-		.menu a.active {
-            border-color: #BBBBBB;
-			border-radius: 40px; /* Sanfte Abrundung für den aktiven Link */
-        }
-		.content {
-			opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            display: none;
-        }
-		#names {
-			font-family: 'handwriting', serif;
-			line-height:0.8;
-		}
-		#date {
-			font-family: 'handwriting', serif;
-			font-size:40px;
-			line-height:0.7;
-		}
-        input, button {
-			font-family: 'ITALO_medium', serif;
-            margin: 10px;
-            padding: 10px;
-            font-size: 28px;
-            width: 200px;
-        }
-		.output {
-			font-size: 50px;
-			font-style: bold;
-		}
-        .suggestions {
-            position: absolute;
-            border: 1px solid #ccc;
-            background-color: white;
-            width: 200px;
-            max-height: 150px;
-            overflow-y: auto;
-            display: none;
-            text-align: left;
-            z-index: 1000;
-        }
-        .suggestions div {
-            padding: 10px;
-            cursor: pointer;
-        }
-        .suggestions div:hover {
-            background-color: #f0f0f0;
-        }
-		#tableplan {
-			max-width: 300px;
-			height: auto;
-			margin-top:20px;
-		}
-		.full-width-image {
-            width: 100%;
-            height: auto;
-            display: block;
-			max-width: 600px;
-			float:right;
-        }
-	    #scrollToTop {
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-			text-align: center;
-			font-size: 20px;
-			position: fixed;
-			bottom: 20px;
-			right: 20px;
-			background-color: #333;
-			color: white;
-			border: none;
-			cursor: pointer;
-			box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-			opacity: 0; /* Anfangs transparent */
-			transition: opacity 0.5s ease-in-out; /* Sanfte Einblendung */
-        }
-        #scrollToTop:hover {
-            background-color: #575757;
-        }
+	font-family: 'handwriting';
+	src: url(VL_Smooth_Handwriting.otf) format('truetype');
+}
+a {
+	color: #888888;
+}
+body {
+	font-family: 'ITALO_medium', serif;
+	text-align: center;
+	margin-top: 50px;
+	font-size: 28px;
+	background-color: white;
+	color: black;
+}
+.menu {
+	overflow: hidden;
+	text-align: center;
+	padding: 10px 0;
+}
+.menu a {
+	color: #444444;
+	padding: 14px 20px;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 1px;
+	cursor: pointer;
+	border: 1px solid;
+	border-color:#FFFFFF;
+	transition: border-color 0.8s ease-in-out, border-radius 0.8s ease-in-out;
+}
+.menu a.active {
+	border-color: #BBBBBB;
+	border-radius: 40px; /* Sanfte Abrundung für den aktiven Link */
+}
+.content {
+	opacity: 0;
+	transition: opacity 0.4s ease-in-out;
+	display: none;
+}
+#names {
+	font-family: 'handwriting', serif;
+	line-height:0.8;
+}
+#date {
+	font-family: 'handwriting', serif;
+	font-size:40px;
+	line-height:0.7;
+}
+input, button {
+	font-family: 'ITALO_medium', serif;
+	margin: 10px;
+	padding: 10px;
+	font-size: 28px;
+	width: 200px;
+}
+.output {
+	font-size: 50px;
+	font-style: bold;
+}
+.suggestions {
+	position: absolute;
+	border: 1px solid #ccc;
+	background-color: white;
+	width: 200px;
+	max-height: 150px;
+	overflow-y: auto;
+	display: none;
+	text-align: left;
+	z-index: 1000;
+}
+.suggestions div {
+	padding: 10px;
+	cursor: pointer;
+}
+.suggestions div:hover {
+	background-color: #f0f0f0;
+}
+#tableplan {
+	max-width: 350px;
+	height: auto;
+	margin-top:20px;
+}
+.full-width-image {
+	width: 100%;
+	height: auto;
+	display: block;
+	max-width: 600px;
+	float:right;
+}
+#cameraButton {
+	bottom: 10px;
+	right: 10px;
+}
+#scrollToTop {
+	bottom: 90px;
+	right: 10px;
+	opacity: 0; /* Anfangs transparent */
+	transition: opacity 0.5s ease-in-out; /* Sanfte Einblendung */
+}
+.fixedbutton {
+	text-decoration:none;
+	font-size:36px;
+	line-height:72px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	text-align: center;
+	position: fixed;
+	color: #444444;
+	border: none;
+	cursor: pointer;
+	background-color: rgba(240, 240, 240, 0.7); /* Leicht transparenter Hintergrund */
+	backdrop-filter: blur(5px);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+	z-index: 10;
+}
+.hint {
+	text-decoration:none;
+	position: fixed;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)); /* Transparenter Verlauf */
+	backdrop-filter: blur(5px);
+	border-radius: 40px;
+	font-weight:bold;
+	color: black;
+	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; /* Weißer Rand */
+	text-align: right;
+	bottom: 5px;
+	right: -300px;
+	line-height:30px;
+	padding: 10px 80px 0px 20px;
+	height:70px;
+	width:160px;
+	transition: right 0.5s ease;
+	z-index: 5;
+}
+#cameraButton:hover ~ .hint {
+  right: 5px;
+}
+
+
