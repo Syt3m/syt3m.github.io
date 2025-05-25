@@ -114,51 +114,71 @@
                 currentVisibleDiv = id; // Aktuelles sichtbares Div speichern
             }, 500);
         }
-        const nameToNumber = {
-            "Marc": 5,
-            "Ramona": 5,
-			"Eric A.": 5,
-			"Sebastian": 5,
-			"Günter": 5,
-			"Viola": 5,
-			"Uwe": 5,
-			"Verena": 5,
-			"Adrian": 5,
-			"Patrick": 5,
-			"Daniela": 5,
-			"Angela": 5,
-			"Leon": 5,
-			"Anne": 5,
-			"Heike": 5,
-			"Jules": 1,
-			"Michael K.": 1,
-			"Michael H.": 1,
-			"Snehal": 1,
-			"Athithan": 1,
-			"Ralf": 1,
-			"Thomas": 1,
-			"Maximilian": 1,
-			"Anna": 1,
-			"Bastian": 1,
+		let nameToNumber = {}; // Globale Variable
+		async function loadData() {
+			const response = await fetch("daten.txt"); // Datei laden
+			const text = await response.text(); // Inhalt als Text lesen
+
+			const parts = text.split(/\s+/); // Aufteilen anhand von Leerzeichen
+
+			for (let i = 0; i < parts.length; i += 2) {
+				const number = parseInt(parts[i], 10);
+				const name = parts[i + 1];
+				if (!isNaN(number) && name) {
+					nameToNumber[name] = number; // Eintrag ins Objekt hinzufügen
+				}
+			}
+		}
+
+		// Daten direkt beim Laden der Seite laden
+		document.addEventListener("DOMContentLoaded", async () => {
+			await loadData();
+			console.log(nameToNumber); // Globale Variable ist gefüllt
+		});
+        const nameToNumber2 = {
+            "Marc": 1,
+            "Ramona": 1,
+			"Eric A.": 1,
+			"Sebastian": 1,
+			"Günter": 1,
+			"Viola": 1,
+			"Uwe": 1,
+			"Verena": 1,
+			"Adrian": 1,
+			"Patrick": 1,
+			"Daniela": 1,
+			"Angela": 1,
+			"Leon": 1,
+			"Anne": 1,
+			"Heike": 1,
+			"Jules": 7,
+			"Michael K.": 7,
+			"Michael H.": 7,
+			"Snehal": 7,
+			"Athithan": 7,
+			"Ralf": 7,
+			"Thomas": 7,
+			"Maximilian": 7,
+			"Anna W.": 7,
+			"Bastian": 7,
 			"Eva": 3,
 			"Marco": 3,
-			"Noah": 6,
-			"Elena": 6,
-			"Fabian": 6,
-			"David": 6,
-			"Thilo": 6,
-			"Eric J.": 6,
-			"Onur": 7,
-			"Jan": 7,
-			"Alba": 7,
-			"Moritz": 7,
-			"Mario": 7,
-			"Mayra": 7,
-			"Michael J.": 7,
-			"Jessica": 7,
-			"Freddy": 7
+			"Noah": 5,
+			"Elena": 5,
+			"Fabian": 5,
+			"David": 5,
+			"Thilo": 5,
+			"Eric J.": 5,
+			"Onur": 4,
+			"Jan": 4,
+			"Alba": 4,
+			"Moritz": 4,
+			"Mario": 4,
+			"Mayra": 4,
+			"Michael J.": 4,
+			"Jessica": 4,
+			"Freddy": 4
         };
-
         function showSuggestions() {
             let input = document.getElementById("nameInput").value.toLowerCase();
             let suggestionsBox = document.getElementById("suggestions");
@@ -168,8 +188,7 @@
                 suggestionsBox.style.display = "none";
                 return;
             }
-
-            let matches = Object.keys(nameToNumber).filter(name => name.toLowerCase().includes(input));
+            let matches = Object.keys(nameToNumber).filter(name => name.toLowerCase().startsWith(input)).sort((a, b) => a.localeCompare(b));
             if (matches.length > 0) {
                 suggestionsBox.style.display = "block";
                 matches.forEach(name => {
@@ -186,7 +205,6 @@
                 suggestionsBox.style.display = "none";
             }
         }
-
         function generateNumber() {
             let name = document.getElementById("nameInput").value.trim();
             let suggestionsBox = document.getElementById("suggestions");
