@@ -78,7 +78,7 @@
 		window.onload = function() {
             document.getElementById("nameInput").focus();
         };
-		window.onscroll = function () {
+		/*window.onscroll = function () {
 			const button = document.getElementById("scrollToTop");
 			if (document.documentElement.scrollTop > 100) {
 				button.style.opacity = "1"; // Button erscheint
@@ -89,7 +89,7 @@
 		function scrollToTop() {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}
-        let currentVisibleDiv = null;
+        let currentVisibleDiv = null;*/
 
         function showContent(id, element) {
 			// Alle Links zurücksetzen
@@ -116,7 +116,7 @@
         }
 		let nameToNumber = {}; // Globale Variable
 		async function loadData() {
-			const response = await fetch("daten.txt"); // Datei laden
+			const response = await fetch("https://syt3m.github.io/wedding/Daten.txt"); // Datei laden
 			const text = await response.text(); // Inhalt als Text lesen
 
 			const parts = text.split(/\s+/); // Aufteilen anhand von Leerzeichen
@@ -129,56 +129,11 @@
 				}
 			}
 		}
-
 		// Daten direkt beim Laden der Seite laden
 		document.addEventListener("DOMContentLoaded", async () => {
 			await loadData();
 			console.log(nameToNumber); // Globale Variable ist gefüllt
 		});
-        const nameToNumber2 = {
-            "Marc": 1,
-            "Ramona": 1,
-			"Eric A.": 1,
-			"Sebastian": 1,
-			"Günter": 1,
-			"Viola": 1,
-			"Uwe": 1,
-			"Verena": 1,
-			"Adrian": 1,
-			"Patrick": 1,
-			"Daniela": 1,
-			"Angela": 1,
-			"Leon": 1,
-			"Anne": 1,
-			"Heike": 1,
-			"Jules": 7,
-			"Michael K.": 7,
-			"Michael H.": 7,
-			"Snehal": 7,
-			"Athithan": 7,
-			"Ralf": 7,
-			"Thomas": 7,
-			"Maximilian": 7,
-			"Anna W.": 7,
-			"Bastian": 7,
-			"Eva": 3,
-			"Marco": 3,
-			"Noah": 5,
-			"Elena": 5,
-			"Fabian": 5,
-			"David": 5,
-			"Thilo": 5,
-			"Eric J.": 5,
-			"Onur": 4,
-			"Jan": 4,
-			"Alba": 4,
-			"Moritz": 4,
-			"Mario": 4,
-			"Mayra": 4,
-			"Michael J.": 4,
-			"Jessica": 4,
-			"Freddy": 4
-        };
         function showSuggestions() {
             let input = document.getElementById("nameInput").value.toLowerCase();
             let suggestionsBox = document.getElementById("suggestions");
