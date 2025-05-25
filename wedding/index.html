@@ -1,1 +1,244 @@
-<!DOCTYPE html><html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Hochzeit Ramona Kerschenlohr &amp; Marc Amann</title>    <link rel="stylesheet" href="style.css">	<link rel="icon" href="https://syt3m.github.io/wedding/favicon.ico" type="image/vnd.microsoft.icon"></head><body><div>	<a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank" class="fixedbutton" id="cameraButton">📷</a>	<a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank" class="hint" id="hintButton">Hier könnt ihr Fotos<br>anschauen und hochladen</a>	<!--<div id="scrollToTop" onclick="scrollToTop()" class="fixedbutton">▲</div>--></div>	<img src="wedding.svg" alt="Herz &amp; Unendlichkeit" width="40px">	<div id="names">Ramona &amp; Marc</div>	<div id="date">30.05.2025</div><br>	<div class="menu">        <a href="#" onclick="showContent('div1', this)">- Anfahrt -</a>		<a href="#" onclick="showContent('div2', this)">- Programm -</a><br>        <a href="#" onclick="showContent('div3', this)" id="tablenumberbutton">- Tischnummer -</a>        <a href="#" onclick="showContent('div4', this)" id="weddingmenubutton">- Hochzeitsmenü -</a>    </div><br>	<div id="div1" class="content" style="display:inline;opacity:1;">	<h1>Wir freuen uns auf euch!</h1>	<p>Unsere Hochzeit feiern wir mit euch am 30.05.25 ab 15:00 im<br>	Schloss Hofstetten<br>	Schloßstraße 28<br>	85122 Hitzhofen</p>	<p>Bitte nutzt den <b>Parkplatz</b> vor dem Sport- und Jugendzentrum in der Römerstraße<br><br>	<img src="map.png" alt="Wegbeschreibung Parkplatz und Schloss" width="300px"><br>	<h2><a href="https://maps.app.goo.gl/4hZ5o5XG5FEB13Gq7" target="_blank">Google Maps Link</a></h2></p>	<p>Wenn dieser voll ist, könnt ihr auch in der Schloßstraße parken, aber bitte <b>nicht auf dem Bordstein.</b></p>	<p><b>Die Parkplätze direkt vor dem Schloss sind für Lieferanten reserviert.</b></p>	<p>Solltet ihr für die Abreise ein Taxi benötigen, reserviert ihr eure Fahrt am besten mindestens eine Stunde bevor ihr Abreisen wollt. Hofstetten ist verkehrstechnisch etwas abgelegen :)</p>	<h2>Für alle, die Kuchen mitbringen:</h2>	<p>Bitte gebt uns vorher Bescheid, welche Allergene (Nüsse etc.) enthalten sind und wie wir den Kuchen auf dem Beistellschild nennen sollen.<br>Abgeben könnt ihr ihn entweder am Donnerstag zwischen 14 und 17 Uhr in Hofstetten oder am Freitag bei eurer Ankunft dem Personal überreichen. Vielen Dank!</p>	</div>	<div id="div2" class="content">	<h1>Programm</h1>	<p>15:00 Sektempfang</p>	<p>15:30 Kaffee und Kuchen</p>	<p>18:00 Abendessen</p>	<p>20:00 Eröffnungstanz</p>	<p>00:00 Abschlusstanz</p><br>	<p>Solltet ihr selbst noch Ideen für Programmpunkte haben, wendet euch bitte an die Trauzeugen. Die Kontaktdaten findet ihr auf der Rückseite der Einladung.</p>	</div>	<div id="div3" class="content">    <h1>Schön, dass du da bist!</h1>    <label for="nameInput">Wenn du deinen Namen eingibst, bekommst du deine Tischnummer angezeigt</label><br>    <div style="position: relative; display: inline-block;">        <input type="text" id="nameInput" placeholder="Dein Name" oninput="showSuggestions()">        <div id="suggestions" class="suggestions"></div>    </div>    <p id="output" class="output"></p>	<script>		document.addEventListener("DOMContentLoaded", function () {			const targetDate = new Date("2025-05-30T14:00:00");			const currentDate = new Date();			if (currentDate >= targetDate) {				document.getElementById("weddingmenubutton").style.display = "inline-block";				document.getElementById("tablenumberbutton").style.display = "inline-block";			} else {				document.getElementById("weddingmenubutton").style.display = "none";				document.getElementById("tablenumberbutton").style.display = "none";			}		});				window.addEventListener('DOMContentLoaded', () => {		    const hint = document.getElementById('hintButton');		    function slideInOut() {		      hint.style.right = '5px'; // Einblenden		      setTimeout(() => {		        hint.style.right = '-300px'; // Ausblenden		      }, 6000); 		    }		    setTimeout(slideInOut, 2000);		    setInterval(slideInOut, 30000);		  });		window.onload = function() {            document.getElementById("nameInput").focus();        };		window.onscroll = function () {			const button = document.getElementById("scrollToTop");			if (document.documentElement.scrollTop > 100) {				button.style.opacity = "1"; // Button erscheint			} else {				button.style.opacity = "0"; // Button bleibt unsichtbar			}		};		function scrollToTop() {			window.scrollTo({ top: 0, behavior: 'smooth' });		}        let currentVisibleDiv = null;        function showContent(id, element) {			// Alle Links zurücksetzen            document.querySelectorAll('.menu a').forEach(link => {                link.classList.remove('active');            });			element.classList.add('active');            if (currentVisibleDiv === id) {                return; // Falls das Div bereits sichtbar ist, nichts tun            }            // Alle divs ausblenden            document.querySelectorAll('.content').forEach(div => {                div.style.opacity = 0;                setTimeout(() => div.style.display = 'none', 500);            });            // Nach der Ausblendung das gewünschte div anzeigen            setTimeout(() => {                const selectedDiv = document.getElementById(id);                selectedDiv.style.display = 'block';                setTimeout(() => selectedDiv.style.opacity = 1, 10);                currentVisibleDiv = id; // Aktuelles sichtbares Div speichern            }, 500);        }        const nameToNumber = {            "Marc": 5,            "Ramona": 5,			"Eric A.": 5,			"Sebastian": 5,			"Günter": 5,			"Viola": 5,			"Uwe": 5,			"Verena": 5,			"Adrian": 5,			"Patrick": 5,			"Daniela": 5,			"Angela": 5,			"Leon": 5,			"Anne": 5,			"Heike": 5,			"Jules": 1,			"Michael K.": 1,			"Michael H.": 1,			"Snehal": 1,			"Athithan": 1,			"Ralf": 1,			"Thomas": 1,			"Maximilian": 1,			"Anna": 1,			"Bastian": 1,			"Eva": 3,			"Marco": 3,			"Noah": 6,			"Elena": 6,			"Fabian": 6,			"David": 6,			"Thilo": 6,			"Eric J.": 6,			"Onur": 7,			"Jan": 7,			"Alba": 7,			"Moritz": 7,			"Mario": 7,			"Mayra": 7,			"Michael J.": 7,			"Jessica": 7,			"Freddy": 7        };        function showSuggestions() {            let input = document.getElementById("nameInput").value.toLowerCase();            let suggestionsBox = document.getElementById("suggestions");            suggestionsBox.innerHTML = "";                        if (input === "") {                suggestionsBox.style.display = "none";                return;            }            let matches = Object.keys(nameToNumber).filter(name => name.toLowerCase().includes(input));            if (matches.length > 0) {                suggestionsBox.style.display = "block";                matches.forEach(name => {                    let div = document.createElement("div");                    div.textContent = name;                    div.onclick = () => {                        document.getElementById("nameInput").value = name;                        suggestionsBox.style.display = "none";                        generateNumber();                    };                    suggestionsBox.appendChild(div);                });            } else {                suggestionsBox.style.display = "none";            }        }        function generateNumber() {            let name = document.getElementById("nameInput").value.trim();            let suggestionsBox = document.getElementById("suggestions");            suggestionsBox.style.display = "none";            if (nameToNumber[name]) {                document.getElementById("output").innerHTML = "Hallo " + name + ", du sitzt an Tisch " + nameToNumber[name] + "<br><img id=\"tableplan\" src=\"Tischnummer" + nameToNumber[name] + ".png\" alt=\"Tischplan\">";            } else {                document.getElementById("output").innerText = "Keine Nummer gefunden.";            }        }    </script>	<p>Übrigens: Deine Fotos von heute kannst du <a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank">hier</a> hochladen und mit uns teilen!</p>	</div>	<div id="div4" class="content">		<h1>Hochzeitsmenü</h1>		<h2>Vorspeisenbuffet</h2>		<p>Kleine Crostini mit diversen Belägen</p>		<p>Rucolasalat mit Melonenwürfeln, wahlweise italienischem Schinken, Parmesanspänen und Balsamico Dressing</p>		<p>Tomate &amp; Mozzarella</p>		<h2>Hauptgerichte vom Buffet</h2>		<p>Boeuf Bourgignon<br>		Rindfleisch in Burgunderwein geschmort mit Schalotten, gelben Rüben und Champignons, dazu Orcchiette</p>		<p>Rotes Gemüsecurry wahlweise mit Hähnchen<br>		mit Basmatireis</p>		<p>Ofengemüse mit Fetakäse</p>		<p>Pasta mit Lachswürfeln und Gemüse auf Zitronensauce</p>		<h2>Dessert</h2>		<p>Mousse au Chocolat mit gestückelten Erdbeeren</p>		<p>Obstsalat</p>		<p>Haselnuss Panna Cotta mit Erdbeerragout</p><br>		<h2>Getränke</h2>		<h3>Wein</h3>		<p>Nachschlag 2024 Weiß / Rot / Rosé<br>		Deutschland - Winzerhof Stahl</p>		<h3>Aperitif</h3>		<p>Lillet Wildberry<br>		Aperol Spritz<br>		Hugo / auch alkoholfrei</p>		<h3>Bier</h3>		<p>Tegernseer Helles<br>		Nordbräu Pils<br>		Gutmann Hefeweizen<br>		Gutmann Hefeweizen alkoholfrei<br>		Pyraser Helles alkoholfrei</p>		<h3>Alkoholfreies</h3>		<p>Coca Cola / Zero<br>		Limonade Orange / Zitrone<br>		Spezi<br>		Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle<br>		Orangensaft</p>	</div>	<img src="mundm.png" alt="M + M" class="full-width-image">    </body></html>
+<!DOCTYPE html>
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hochzeit Ramona Kerschenlohr &amp; Marc Amann</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" href="https://syt3m.github.io/wedding/favicon.ico" type="image/vnd.microsoft.icon">
+</head>
+<body>
+<div>
+	<a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank" class="fixedbutton" id="cameraButton">📷</a>
+	<a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank" class="hint" id="hintButton">Hier könnt ihr Fotos<br>anschauen und hochladen</a>
+	<!--<div id="scrollToTop" onclick="scrollToTop()" class="fixedbutton">▲</div>-->
+</div>
+	<img src="wedding.svg" alt="Herz &amp; Unendlichkeit" width="40px">
+	<div id="names">Ramona &amp; Marc</div>
+	<div id="date">30.05.2025</div><br>
+	<div class="menu">
+        <a href="#" onclick="showContent('div1', this)">- Anfahrt -</a>
+		<a href="#" onclick="showContent('div2', this)">- Programm -</a><br>
+        <a href="#" onclick="showContent('div3', this)" id="tablenumberbutton">- Tischnummer -</a>
+        <a href="#" onclick="showContent('div4', this)" id="weddingmenubutton">- Hochzeitsmenü -</a>
+    </div><br>
+	<div id="div1" class="content" style="display:inline;opacity:1;">
+	<h1>Wir freuen uns auf euch!</h1>
+	<p>Unsere Hochzeit feiern wir mit euch am 30.05.25 ab 15:00 im<br>
+	Schloss Hofstetten<br>
+	Schloßstraße 28<br>
+	85122 Hitzhofen</p>
+	<p>Bitte nutzt den <b>Parkplatz</b> vor dem Sport- und Jugendzentrum in der Römerstraße<br><br>
+	<img src="map.png" alt="Wegbeschreibung Parkplatz und Schloss" width="300px"><br>
+	<h2><a href="https://maps.app.goo.gl/4hZ5o5XG5FEB13Gq7" target="_blank">Google Maps Link</a></h2></p>
+	<p>Wenn dieser voll ist, könnt ihr auch in der Schloßstraße parken, aber bitte <b>nicht auf dem Bordstein.</b></p>
+	<p><b>Die Parkplätze direkt vor dem Schloss sind für Lieferanten reserviert.</b></p>
+	<p>Solltet ihr für die Abreise ein Taxi benötigen, reserviert ihr eure Fahrt am besten mindestens eine Stunde bevor ihr Abreisen wollt. Hofstetten ist verkehrstechnisch etwas abgelegen :)</p>
+	<h2>Für alle, die Kuchen mitbringen:</h2>
+	<p>Bitte gebt uns vorher Bescheid, welche Allergene (Nüsse etc.) enthalten sind und wie wir den Kuchen auf dem Beistellschild nennen sollen.<br>Abgeben könnt ihr ihn entweder am Donnerstag zwischen 14 und 17 Uhr in Hofstetten oder am Freitag bei eurer Ankunft dem Personal überreichen. Vielen Dank!</p>
+	</div>
+	<div id="div2" class="content">
+	<h1>Programm</h1>
+	<p>15:00 Sektempfang</p>
+	<p>15:30 Kaffee und Kuchen</p>
+	<p>18:00 Abendessen</p>
+	<p>20:00 Eröffnungstanz</p>
+	<p>00:00 Abschlusstanz</p><br>
+	<p>Solltet ihr selbst noch Ideen für Programmpunkte haben, wendet euch bitte an die Trauzeugen. Die Kontaktdaten findet ihr auf der Rückseite der Einladung.</p>
+	</div>
+	<div id="div3" class="content">
+    <h1>Schön, dass du da bist!</h1>
+    <label for="nameInput">Wenn du deinen Namen eingibst, bekommst du deine Tischnummer angezeigt</label><br>
+    <div style="position: relative; display: inline-block;">
+        <input type="text" id="nameInput" placeholder="Dein Name" oninput="showSuggestions()">
+        <div id="suggestions" class="suggestions"></div>
+    </div>
+    <p id="output" class="output"></p>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const targetDate = new Date("2025-05-30T14:00:00");
+			const currentDate = new Date();
+			if (currentDate >= targetDate) {
+				document.getElementById("weddingmenubutton").style.display = "inline-block";
+				document.getElementById("tablenumberbutton").style.display = "inline-block";
+			} else {
+				document.getElementById("weddingmenubutton").style.display = "none";
+				document.getElementById("tablenumberbutton").style.display = "none";
+			}
+		});		
+		window.addEventListener('DOMContentLoaded', () => {
+		    const hint = document.getElementById('hintButton');
+		    function slideInOut() {
+		      hint.style.right = '5px'; // Einblenden
+		      setTimeout(() => {
+		        hint.style.right = '-300px'; // Ausblenden
+		      }, 6000); 
+		    }
+		    setTimeout(slideInOut, 2000);
+		    setInterval(slideInOut, 30000);
+		  });
+		window.onload = function() {
+            document.getElementById("nameInput").focus();
+        };
+		window.onscroll = function () {
+			const button = document.getElementById("scrollToTop");
+			if (document.documentElement.scrollTop > 100) {
+				button.style.opacity = "1"; // Button erscheint
+			} else {
+				button.style.opacity = "0"; // Button bleibt unsichtbar
+			}
+		};
+		function scrollToTop() {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+        let currentVisibleDiv = null;
+
+        function showContent(id, element) {
+			// Alle Links zurücksetzen
+            document.querySelectorAll('.menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+			element.classList.add('active');
+            if (currentVisibleDiv === id) {
+                return; // Falls das Div bereits sichtbar ist, nichts tun
+            }
+
+            // Alle divs ausblenden
+            document.querySelectorAll('.content').forEach(div => {
+                div.style.opacity = 0;
+                setTimeout(() => div.style.display = 'none', 500);
+            });
+            // Nach der Ausblendung das gewünschte div anzeigen
+            setTimeout(() => {
+                const selectedDiv = document.getElementById(id);
+                selectedDiv.style.display = 'block';
+                setTimeout(() => selectedDiv.style.opacity = 1, 10);
+                currentVisibleDiv = id; // Aktuelles sichtbares Div speichern
+            }, 500);
+        }
+        const nameToNumber = {
+            "Marc": 5,
+            "Ramona": 5,
+			"Eric A.": 5,
+			"Sebastian": 5,
+			"Günter": 5,
+			"Viola": 5,
+			"Uwe": 5,
+			"Verena": 5,
+			"Adrian": 5,
+			"Patrick": 5,
+			"Daniela": 5,
+			"Angela": 5,
+			"Leon": 5,
+			"Anne": 5,
+			"Heike": 5,
+			"Jules": 1,
+			"Michael K.": 1,
+			"Michael H.": 1,
+			"Snehal": 1,
+			"Athithan": 1,
+			"Ralf": 1,
+			"Thomas": 1,
+			"Maximilian": 1,
+			"Anna": 1,
+			"Bastian": 1,
+			"Eva": 3,
+			"Marco": 3,
+			"Noah": 6,
+			"Elena": 6,
+			"Fabian": 6,
+			"David": 6,
+			"Thilo": 6,
+			"Eric J.": 6,
+			"Onur": 7,
+			"Jan": 7,
+			"Alba": 7,
+			"Moritz": 7,
+			"Mario": 7,
+			"Mayra": 7,
+			"Michael J.": 7,
+			"Jessica": 7,
+			"Freddy": 7
+        };
+
+        function showSuggestions() {
+            let input = document.getElementById("nameInput").value.toLowerCase();
+            let suggestionsBox = document.getElementById("suggestions");
+            suggestionsBox.innerHTML = "";
+            
+            if (input === "") {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            let matches = Object.keys(nameToNumber).filter(name => name.toLowerCase().includes(input));
+            if (matches.length > 0) {
+                suggestionsBox.style.display = "block";
+                matches.forEach(name => {
+                    let div = document.createElement("div");
+                    div.textContent = name;
+                    div.onclick = () => {
+                        document.getElementById("nameInput").value = name;
+                        suggestionsBox.style.display = "none";
+                        generateNumber();
+                    };
+                    suggestionsBox.appendChild(div);
+                });
+            } else {
+                suggestionsBox.style.display = "none";
+            }
+        }
+
+        function generateNumber() {
+            let name = document.getElementById("nameInput").value.trim();
+            let suggestionsBox = document.getElementById("suggestions");
+            suggestionsBox.style.display = "none";
+
+            if (nameToNumber[name]) {
+                document.getElementById("output").innerHTML = "Hallo " + name + ", du sitzt an Tisch " + nameToNumber[name] + "<br><img id=\"tableplan\" src=\"Tischnummer" + nameToNumber[name] + ".png\" alt=\"Tischplan\">";
+            } else {
+                document.getElementById("output").innerText = "Keine Nummer gefunden.";
+            }
+        }
+    </script>
+	<p>Übrigens: Deine Fotos von heute kannst du <a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank">hier</a> hochladen und mit uns teilen!</p>
+	</div>
+	<div id="div4" class="content">
+		<h1>Hochzeitsmenü</h1>
+		<h2>Vorspeisenbuffet</h2>
+		<p>Kleine Crostini mit diversen Belägen</p>
+		<p>Rucolasalat mit Melonenwürfeln, wahlweise italienischem Schinken, Parmesanspänen und Balsamico Dressing</p>
+		<p>Tomate &amp; Mozzarella</p>
+		<h2>Hauptgerichte vom Buffet</h2>
+		<p>Boeuf Bourgignon<br>
+		Rindfleisch in Burgunderwein geschmort mit Schalotten, gelben Rüben und Champignons, dazu Orcchiette</p>
+		<p>Rotes Gemüsecurry wahlweise mit Hähnchen<br>
+		mit Basmatireis</p>
+		<p>Ofengemüse mit Fetakäse</p>
+		<p>Pasta mit Lachswürfeln und Gemüse auf Zitronensauce</p>
+		<h2>Dessert</h2>
+		<p>Mousse au Chocolat mit gestückelten Erdbeeren</p>
+		<p>Obstsalat</p>
+		<p>Haselnuss Panna Cotta mit Erdbeerragout</p><br>
+		<h2>Getränke</h2>
+		<h3>Wein</h3>
+		<p>Nachschlag 2024 Weiß / Rot / Rosé<br>
+		Deutschland - Winzerhof Stahl</p>
+		<h3>Aperitif</h3>
+		<p>Lillet Wildberry<br>
+		Aperol Spritz<br>
+		Hugo / auch alkoholfrei</p>
+		<h3>Bier</h3>
+		<p>Tegernseer Helles<br>
+		Nordbräu Pils<br>
+		Gutmann Hefeweizen<br>
+		Gutmann Hefeweizen alkoholfrei<br>
+		Pyraser Helles alkoholfrei</p>
+		<h3>Alkoholfreies</h3>
+		<p>Coca Cola / Zero<br>
+		Limonade Orange / Zitrone<br>
+		Spezi<br>
+		Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle<br>
+		Orangensaft</p>
+	</div>
+	<img src="mundm.png" alt="M + M" class="full-width-image">    
+</body>
+</html>
