@@ -115,7 +115,7 @@
         }
 		let nameToNumber = {}; // Globale Variable
 		async function loadData() {
-			const response = await fetch("https://syt3m.github.io/wedding/Daten.txt"); // Datei laden
+			const response = await fetch("https://syt3m.github.io/wedding/tischplan.txt"); // Datei laden
 			const text = await response.text(); // Inhalt als Text lesen
 
 			const parts = text.split(/\s+/); // Aufteilen anhand von Leerzeichen
