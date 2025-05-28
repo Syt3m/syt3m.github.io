@@ -53,9 +53,51 @@
     </div>
     <p id="output" class="output"></p>
 	<script>
+		let currentVisibleDiv = null;
+        function showContent(id, element) {
+			// Alle Links zurücksetzen
+            document.querySelectorAll('.menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+			element.classList.add('active');
+            if (currentVisibleDiv === id) {
+                return; // Falls das Div bereits sichtbar ist, nichts tun
+            }
+
+            // Alle divs ausblenden
+            document.querySelectorAll('.content').forEach(div => {
+                div.style.opacity = 0;
+                setTimeout(() => div.style.display = 'none', 500);
+            });
+            // Nach der Ausblendung das gewünschte div anzeigen
+            setTimeout(() => {
+                const selectedDiv = document.getElementById(id);
+                selectedDiv.style.display = 'block';
+                setTimeout(() => selectedDiv.style.opacity = 1, 10);
+                currentVisibleDiv = id; // Aktuelles sichtbares Div speichern
+            }, 500);
+        }
 		document.addEventListener("DOMContentLoaded", function () {
-			const targetDate = new Date("2025-05-30T14:00:00");
-			const currentDate = new Date();
+			// Aktuelle Zeit abrufen
+			let currentDate = new Date();
+
+			// URL-Parameter abrufen
+			const urlParams = new URLSearchParams(window.location.search);
+			const day = urlParams.get("d");
+			const hour = urlParams.get("h");
+			const minute = urlParams.get("m");
+
+			// Falls Werte übergeben wurden, aktuelle Zeit anpassen
+			if (day !== null) {
+				currentDate.setDate(parseInt(day, 10));
+			}
+			if (hour !== null) {
+				currentDate.setHours(parseInt(hour, 10));
+			}
+			if (minute !== null) {
+				currentDate.setMinutes(parseInt(minute, 10));
+			}
+			const targetDate = new Date(`2025-05-30T14:00:00`);
 			if (currentDate >= targetDate) {
 				document.getElementById("weddingmenubutton").style.display = "inline-block";
 				document.getElementById("tablenumberbutton").style.display = "inline-block";
@@ -89,32 +131,8 @@
 		function scrollToTop() {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}*/
-        let currentVisibleDiv = null;
-        function showContent(id, element) {
-			// Alle Links zurücksetzen
-            document.querySelectorAll('.menu a').forEach(link => {
-                link.classList.remove('active');
-            });
-			element.classList.add('active');
-            if (currentVisibleDiv === id) {
-                return; // Falls das Div bereits sichtbar ist, nichts tun
-            }
-
-            // Alle divs ausblenden
-            document.querySelectorAll('.content').forEach(div => {
-                div.style.opacity = 0;
-                setTimeout(() => div.style.display = 'none', 500);
-            });
-            // Nach der Ausblendung das gewünschte div anzeigen
-            setTimeout(() => {
-                const selectedDiv = document.getElementById(id);
-                selectedDiv.style.display = 'block';
-                setTimeout(() => selectedDiv.style.opacity = 1, 10);
-                currentVisibleDiv = id; // Aktuelles sichtbares Div speichern
-            }, 500);
-        }
 		async function loadData() {
-			const response = await fetch("daten.txt"); // Datei laden
+			const response = await fetch("https://syt3m.github.io/wedding/tischplan.txt"); // Datei laden
 			const text = await response.text(); // Inhalt als Text lesen
 
 			const lines = text.split("\n"); // Annahme: Jede Zeile enthält eine Zahl und einen Namen
@@ -133,7 +151,6 @@
 
 		document.addEventListener("DOMContentLoaded", async () => {
 			let nameToNumber = await loadData();
-			console.log(nameToNumber); // Zeigt die geladenen Werte
 		});
         function showSuggestions() {
             let input = document.getElementById("nameInput").value.toLowerCase();
@@ -212,6 +229,7 @@
 		Spezi<br>
 		Johannesbeer-/ Apfel- / Apfel-Kirsch-Schorle<br>
 		Orangensaft</p>
+		<p>Übrigens: Deine Fotos von heute kannst du <a href="https://www.sendmoments.de/meine-digitalen-alben?e=d6fabao6fna38281v" target="_blank">hier</a> hochladen und mit uns teilen!</p>
 	</div>
 	<img src="mundm.png" alt="M + M" class="full-width-image">    
 </body>
