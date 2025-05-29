@@ -131,6 +131,7 @@
 		function scrollToTop() {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}*/
+		let nameToNumber = {}; // Globale Variable
 		async function loadData() {
 			const response = await fetch("https://syt3m.github.io/wedding/tischplan.txt"); // Datei laden
 			const text = await response.text(); // Inhalt als Text lesen
@@ -148,9 +149,8 @@
 
 			return nameToNumber;
 		}
-
 		document.addEventListener("DOMContentLoaded", async () => {
-			let nameToNumber = await loadData();
+			nameToNumber = await loadData();
 		});
         function showSuggestions() {
             let input = document.getElementById("nameInput").value.toLowerCase();
