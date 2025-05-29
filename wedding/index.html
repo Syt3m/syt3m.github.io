@@ -105,6 +105,22 @@
 				document.getElementById("weddingmenubutton").style.display = "none";
 				document.getElementById("tablenumberbutton").style.display = "none";
 			}
+			if (currentDate >= new Date(targetDate.getTime() + 80 * 60 * 1000)) {
+				document.querySelectorAll('.content').forEach(div => {
+					div.style.opacity = 0;
+					div.style.display = 'none';
+				});
+				document.getElementById("div3").style.display = "inline";
+				document.getElementById("div3").style.opacity = 1;
+			}
+			if (currentDate >= new Date(targetDate.getTime() + 150 * 60 * 1000)) {
+				document.querySelectorAll('.content').forEach(div => {
+					div.style.opacity = 0;
+					div.style.display = 'none';
+				});
+				document.getElementById("div4").style.display = "inline";
+				document.getElementById("div4").style.opacity = 1;
+			}
 		});		
 		window.addEventListener('DOMContentLoaded', () => {
 		    const hint = document.getElementById('hintButton');
